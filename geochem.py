@@ -501,3 +501,31 @@ def d13c_plot(file, title, top_depth, bot_depth): #defining function to plot d13
     plt.show()    
 
 
+
+def toc_plot(file, title, top_depth, bot_depth):
+    """
+    Summary
+    -------
+    Function to plot TOC data sent from the NIGL isotope labs
+    
+    Parameters
+    ----------
+    file = path to .csv containing the data
+    title = title to save the file as, and to title the plot
+    top_depth = top depth of the core section to be plotted
+    bot_depth = bottom depth of the core sectoin to be plotted
+    
+    Returns
+    -------
+    title.pdf plotting all TOC data alongside core depth
+    """
+    
+    
+    #Creating empty lists
+    sample_depth = []
+    mass0 = [] #Initial mass, before acid washing
+    mass1 = [] #Mass after carbonate removed via acid washing
+    toc_raw = [] #Raw TOC values
+    toc_adj = [] #TOC values adjusted for lost carbonate
+    
+    
