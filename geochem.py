@@ -467,35 +467,23 @@ def d13c_plot(file, title, top_depth, bot_depth): #defining function to plot d13
     """
     
     #Lists produced from columns in spreadsheet
-    #core = []
     sample_depth = []
-    #sample_label = []
-    #purpose = []
-    #dc_mass = []
-    #lithology = []
     d13c = []
-    #N_cont = []
     C_cont = []
-    #CN_ratio = []
+    N_cont = []
+    CN_ratio = []
     
     with open(file, mode='r') as csv_d13c_all:
         d13c_all = csv.reader(csv_d13c_all)
         next(csv_d13c_all)
         for row in d13c_all:
-            #core.append(float(row[0]))
             sample_depth.append(float(row[0]))
-            #sample_label.append(str(row[2]))
-            #purpose.append(str(row[3]))
-            #dc_mass.append(float(row[4]))
-            #lithology.append(str(row[5]))
             d13c.append(float(row[1]))
-            #N_cont.append(float(row[7]))
             C_cont.append(float(row[2]))
-            #CN_ratio.append(float(row[9]))
+            N_cont.append(float(row[3]))
+            CN_ratio.append(float(row[4]))
     
     fig, axs = plt.subplots(2, figsize=(22,8))
-    #plt.xticks(np.arange(top_depth, bot_depth+1, 5))
-    #plt.minorticks_on()
     axs[1].plot(sample_depth, d13c, marker='.', color='grey')
     axs[1].set_ylabel('d13C org')
     axs[1].set_xlim(top_depth, bot_depth)
@@ -509,8 +497,7 @@ def d13c_plot(file, title, top_depth, bot_depth): #defining function to plot d13
     fig.suptitle(title + " isotope data") 
     fig.tight_layout()
     fig.subplots_adjust(top=0.93) #Essentially removes huge gap from between title and plots
-    plt.savefig(title + '_pilot_isotopes.pdf')
+    plt.savefig(title + '_c-isotopes.pdf')
     plt.show()    
 
 
-#pXRF_plot(file="/home/thomasgibson/OneDrive/PhD/Material/NPD 6506 12-5/1. pXRF/csv/6506_lres_all.csv", title="Compiled pXRF 6506/12-5")
