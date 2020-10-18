@@ -525,7 +525,31 @@ def toc_plot(file, title, top_depth, bot_depth):
     sample_depth = []
     mass0 = [] #Initial mass, before acid washing
     mass1 = [] #Mass after carbonate removed via acid washing
-    toc_raw = [] #Raw TOC values
-    toc_adj = [] #TOC values adjusted for lost carbonate
+    C_cont_raw = [] #Raw carbon content values
+    C_cont_adj = [] #TOC values adjusted for lost carbonate
+    N_cont_raw = [] #raw Nitrogen content values
+    N_cont_adj = [] 
+    CN_ratio = []
+    
+    with open(file, mode='r') as csv_d13c_all:
+        d13c_all = csv.reader(csv_d13c_all)
+        next(csv_d13c_all)
+        for row in d13c_all:
+            sample_depth.append(float(row[0]))
+            mass0.append(float(row[1]))
+            mass1.append(float(row[2]))
+            C_cont_raw.append(float(row[3]))
+            C_cont_adj.appen(float(row[4]))
+            N_cont_raw.append(float(row[5]))
+            N_cont_adj.append(float(row[6]))
+            CN_ratio.append(float(row[7]))   
+    
+    m0 = np.array(mass0)
+    m1 = np.array(mass1)
+    c1 = np.array(C_cont_raw)
+    
+    C_cont_adj = (m0/m1)*c1
     
     
+        
+        

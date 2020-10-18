@@ -1,3 +1,3 @@
 # geochemistry
-Repository containing my python Geochemistry modules and functions.
-Included are functions to import and plot carbon isotope data, Hg analyses, and pXRF.
+Repository containing python Geochemistry module.
+Included functions import and plot carbon isotope data, Hg analyses, and pXRF.
